@@ -1,0 +1,20 @@
+{
+  "name": "live-help-now",
+  "version": "0.0.0",
+  "description": "Turn any HTML element into a Live Help Now link",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theutz/live-help-now.git"
+  },
+  "keywords": ["livehelpnow"],
+  "author": "Michael Utz <michael@theutz.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/theutz/live-help-now/issues"
+  },
+  "homepage": "https://github.com/theutz/live-help-now#readme"
+}
