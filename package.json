@@ -10,11 +10,17 @@
     "type": "git",
     "url": "git+https://github.com/theutz/live-help-now.git"
   },
-  "keywords": ["livehelpnow"],
+  "keywords": [
+    "livehelpnow"
+  ],
   "author": "Michael Utz <michael@theutz.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/theutz/live-help-now/issues"
   },
-  "homepage": "https://github.com/theutz/live-help-now#readme"
+  "homepage": "https://github.com/theutz/live-help-now#readme",
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "lodash": "^4.17.4"
+  }
 }
