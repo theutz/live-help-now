@@ -21,20 +21,31 @@ const accountInfo = {
   lhnAccountN: '...',
   // The button design number (not really relevant for the library,
   // but still required by LHN)
-  lhnButtonN: 0,
+  lhnButtonN: 00,
   // The position for the chat window
   lhnChatPosition: 'default',
   // Whether or not to auto-invite for chat
   lhnInviteEnabled: 1,
   // The Chat Window number
-  lhnWindowN: 39980,
+  lhnWindowN: 00000,
   // The Invite Number
-  lhnInviteN: 32167,
+  lhnInviteN: 00000,
   // The Department Number
-  lhnDepartmentN: 17982,
+  lhnDepartmentN: 00000,
 }
 
 $(document).ready(() => {
   liveHelpNow(accountInfo)
 })
+```
+
+## API
+
+```js
+liveHelpNow(
+  accountInfo,
+  scriptURL = '//www.livehelpnow.net/lhn/widgets/chatbutton/lhnchatbutton-current.min.js',
+  scriptId = 'lhnscript',
+  attributeName = 'data-chat'
+)
 ```

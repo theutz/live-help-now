@@ -1,6 +1,5 @@
 {
   "name": "live-help-now",
-  "version": "0.1.0",
   "description": "Turn any HTML element into a Live Help Now link",
   "main": "src/index.js",
   "scripts": {
@@ -10,9 +9,7 @@
     "type": "git",
     "url": "git+https://github.com/theutz/live-help-now.git"
   },
-  "keywords": [
-    "livehelpnow"
-  ],
+  "keywords": ["livehelpnow"],
   "author": "Michael Utz <michael@theutz.com>",
   "license": "MIT",
   "bugs": {
