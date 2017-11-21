@@ -1,30 +1,61 @@
 import $ from 'jquery'
-import _ from 'lodash'
+import forEach from 'lodash.foreach'
 
-const clickHandler = event => {
+export const clickHandler = event => {
   event.preventDefault()
   window.OpenLHNChat()
 }
 
+export const attachAccountInfoGlobals = accountInfo => {
+  forEach(accountInfo, (value, key) => {
+    window[key] = value
+  })
+}
+
+export const appendScriptTag = (url, id) => {
+  $body.append(`<script src=${url} id="${id}"></script>`)
+}
+
+export const lhnIsOnline = () => !!window.bLHNOnline
+
+const $body = $('body')
+
+export const defaultScriptURL =
+  '//www.livehelpnow.net/lhn/widgets/chatbutton/lhnchatbutton-current.min.js'
+
+export const defaultScriptId = 'lhnscript'
+
+export const defaultAttributeName = 'data-chat'
+
 export const liveHelpNow = (
   accountInfo,
-  scriptURL = '//www.livehelpnow.net/lhn/widgets/chatbutton/lhnchatbutton-current.min.js',
-  scriptId = 'lhnscript',
-  attributeName = 'data-chat'
+  callback = null,
+  scriptURL = defaultScriptURL,
+  scriptId = defaultScriptId,
+  attributeName = defaultAttributeName
 ) => {
   if (!accountInfo) {
     throw new Error(
-      'You must provide a the account information as the first argument.'
+      'You must provide the account information as the first argument.'
     )
   }
+  attachAccountInfoGlobals(accountInfo)
 
-  _.forEach(accountInfo, (value, key) => {
-    window[key] = value
+  $(document).ready(() => {
+    appendScriptTag(scriptURL, scriptId)
+
+    const $targets = $(`[${attributeName}]`)
+    $targets.on('click', clickHandler)
+
+    if (typeof callback === 'function') {
+      const runCb = () => {
+        callback($targets, lhnIsOnline())
+      }
+
+      runCb()
+      setInterval(runCb, 3000)
+    }
   })
-
-  $('body').append(`<script src=${scriptURL} id="${scriptId}"></script>`)
-
-  $(`[${attributeName}]`).on('click', clickHandler)
 }
 
 export default liveHelpNow
