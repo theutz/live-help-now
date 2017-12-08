@@ -3,7 +3,10 @@ import forEach from 'lodash.foreach'
 
 export const clickHandler = event => {
   event.preventDefault()
-  window.OpenLHNChat()
+
+  if (typeof window.OpenLHNChat === 'function') {
+    window.OpenLHNChat()
+  }
 }
 
 export const attachAccountInfoGlobals = accountInfo => {
